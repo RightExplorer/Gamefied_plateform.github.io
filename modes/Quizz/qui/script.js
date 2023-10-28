@@ -2,7 +2,7 @@ const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const scoreContainer = document.getElementById('score-container');
-const scoreDisplay = document.getElementById('score4jj');
+const scoreDisplay = document.getElementById('score');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 
@@ -64,7 +64,12 @@ function selectAnswer(e) {
   });
   if (correct) {
     score++;
-    scoreDisplay.innerText = `Score: ${score}`;
+    if(score<4){scoreDisplay.innerText = `Score: ${score}`;}
+    else{
+      scoreDisplay.innerText = `Score: ${score}
+      Excellent !!`;
+    }
+    
   }
   if (currentQuestionIndex < questions.length - 1) {
     nextButton.classList.remove('hide');
